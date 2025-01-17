@@ -1,0 +1,25 @@
+// Noise Reduction Flowchart for Cochlear Implant Patients
+digraph {
+	A [label="Input: Clean Audio Signal"]
+	B [label="Input: Noise Audio Signal"]
+	C [label="Noisy Signal Creation
+(Time-Domain Addition)"]
+	D [label="Short-Time Fourier Transform (STFT)"]
+	E [label="Noise Estimation
+(Magnitude Extraction)"]
+	F [label="Spectral Subtraction
+(Noisy Magnitude - Noise Magnitude)"]
+	G [label="Magnitude & Phase Reconstruction"]
+	H [label="Inverse STFT (ISTFT)"]
+	I [label="Output: Enhanced Clean Audio Signal"]
+	A -> C
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	D -> F [label="Noisy Magnitude"]
+	F -> G
+	D -> G [label="Phase Info"]
+	G -> H
+	H -> I
+}
